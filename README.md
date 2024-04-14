@@ -1,4 +1,4 @@
-# infra 
+# infra
 
 1. `tfstate ファイル` の保管先準備＆設定
 
