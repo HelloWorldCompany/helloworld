@@ -23,6 +23,9 @@ terraform {
 provider "aws" {
   profile = "terraform"
   region  = "ap-northeast-1"
+  ignore_changes = [
+    aws_ssm_parameter.database.value,  
+  ]
 }
 
 provider "aws" {
