@@ -58,4 +58,5 @@ jobs:
             -var 'username=${{ secrets.MYSQL_USERNAME }}' \
             -var 'password=${{ secrets.MYSQL_PASSWORD }}' \
             -input=false \
-            -no-color
+            -no-color \
+            -detailed-exitcode
