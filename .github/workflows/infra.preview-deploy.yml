@@ -15,7 +15,7 @@ permissions:
 
 env:
   AWS_REGION: ap-northeast-1
-  TF_VERSION: 1.2.8
+  TF_VERSION: 1.8.1
   TF_PROJECT: helloworld
   TF_ENVIRONMENT: dev
 
@@ -32,9 +32,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
       - name: Setup terraform
-        uses: hashicorp/setup-terraform@v1
+        uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: ${{ env.TF_VERSION}}
+          terraform_version: ${{ env.TF_VERSION }}
+          terraform_wrapper: false 
       - name: Terraform format
         run: |
           terraform fmt -check
