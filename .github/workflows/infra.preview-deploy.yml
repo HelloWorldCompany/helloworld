@@ -2,7 +2,7 @@ name: "infra preview & deploy"
 
 on:
   push: 
-    branch: 
+    branches: 
       - main 
     paths: 
       - 10_infra/** 
