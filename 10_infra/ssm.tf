@@ -11,17 +11,12 @@ resource "aws_ssm_parameter" "port" {
   name  = "/${var.project}/${var.environment}/app/MYSQL_PORT"
   type  = "String"
   value = aws_db_instance.mysql_standalone.port
-  # value = "3306"
 }
 
 resource "aws_ssm_parameter" "database" {
-  name            = "/${var.project}/${var.environment}/app/MYSQL_DATABASE"
-  type            = "String"
-  value           = aws_db_instance.mysql_standalone.name
-  allowed_pattern = null
-  description     = null
-  key_id          = null
-  # value = "tastylog"
+  name  = "/${var.project}/${var.environment}/app/MYSQL_DATABASE"
+  type  = "String"
+  value = aws_db_instance.mysql_standalone.name
 }
 
 resource "aws_ssm_parameter" "username" {
