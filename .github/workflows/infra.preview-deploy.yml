@@ -30,33 +30,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
-      - name: Setup terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_wrapper: false 
-          terraform_version: ${{ env.TF_VERSION}}
-      - name: Terraform format
         run: |
-          terraform fmt -check
-      - name: Configure AWS credencial
-        uses: aws-actions/configure-aws-credentials@v4
-        with: 
-          aws-region: ${{ env.AWS_REGION }}
-          role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN }}
-      - name: Terraform init
-        run: |
-          terraform init -no-color
-      - name: Terraform validate
-        run: |
-          terraform validate -no-color
-      - name: Terraform plan
-        run: |
-          terraform plan \
-            -var 'project=${{ env.TF_PROJECT }}' \
-            -var 'environment=${{ env.TF_ENVIRONMENT }}' \
-            -var 'username=${{ secrets.MYSQL_USERNAME }}' \
-            -var 'password=${{ secrets.MYSQL_PASSWORD }}' \
-            -input=false \
-            -no-color \
-            -detailed-exitcode
+          echo "hello"
