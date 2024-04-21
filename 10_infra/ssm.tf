@@ -18,9 +18,9 @@ resource "aws_ssm_parameter" "database" {
   name            = "/${var.project}/${var.environment}/app/MYSQL_DATABASE"
   type            = "String"
   value           = aws_db_instance.mysql_standalone.name
-  allowed_pattern = ""
-  description     = ""
-  key_id          = ""
+  allowed_pattern = null
+  description     = null
+  key_id          = null
   # value = "tastylog"
 }
 
