@@ -64,10 +64,13 @@ jobs:
             -input=false \
             -no-color \
             -detailed-exitcode
+      - name: Test
+        run: |
+          echo ${{ steps.plan.outputs.exitcode }}
       - name: Slack notify
         uses: slackapi/slack-github-action@v1.22.0
         with: 
-          channel-id: 'C06V84T4LNR'
+          channel-id: "${{ secrets.SLACK_CHANNEL_ID }}"
           payload: |
             {
               "attachments": [
