@@ -107,7 +107,6 @@ jobs:
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: ${{ env.TF_VERSION }}
-          terraform_wrapper: false 
       - name: Terraform format
         run: |
           terraform fmt -check
@@ -119,3 +118,13 @@ jobs:
       - name: Terraform init
         run: |
           terraform init -no-color
+      - name: Terraform apply
+        run: |
+          terraform apply \
+            -var 'project=${{ env.TF_PROJECT }}' \
+            -var 'environment=${{ env.TF_ENVIRONMENT }}' \
+            -var 'username=${{ secrets.MYSQL_USERNAME }}' \
+            -var 'password=${{ secrets.MYSQL_PASSWORD }}' \
+            -input=false \
+            -no-color \
+            -auto-approve
